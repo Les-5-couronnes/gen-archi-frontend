@@ -1,7 +1,14 @@
+import Modal from "../modal/modal";
 import "./contactList.css";
-import * as React from "react";
+import React, {useState} from "react";
 
 function ContactList() {
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    // Function to toggle the visibility of the modal
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+    };
 
     const profiles = [
         {
@@ -32,7 +39,7 @@ function ContactList() {
                 </div>
                 <div className="contact-button">
                     <p>
-                        <button className="c-button">
+                        <button className="c-button" onClick={toggleModal}>
                             Edit
                         </button>
                     </p>
@@ -42,6 +49,7 @@ function ContactList() {
                         </button>
                     </p>
                 </div>
+                {isModalVisible && <Modal setIsModalOpen={setModalVisible} />}
             </div>
         ))}
     </div>

@@ -21,3 +21,13 @@
     text-align: center;
     line-height: 10px;
 }
+
+.add-button {
+  background-color: #484ebd; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Supprimez la bordure */
+  border-radius: 3px; /* Ajoutez des coins arrondis */
+  cursor: pointer; /* Changez le curseur au survol */
+  padding: 10px 20px; /* Ajoutez un peu de rembourrage pour un meilleur aspect */
+  margin-left: 70%; 
+}
