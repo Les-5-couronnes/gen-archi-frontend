@@ -1,12 +1,10 @@
 import './App.css';
-import ContactList from './composants/contactList/contactList';
-import Header from './composants/header/header';
+import Page from './composants/page/page';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <ContactList />
+      <Page />
     </div>
   );
 }

@@ -1,30 +1,36 @@
-import Modal from "../modal/modal";
+import ModalEdit from "../modalEdit/modalEdit";
 import "./contactList.css";
 import React, {useState} from "react";
 
-function ContactList() {
-    const [isModalVisible, setModalVisible] = useState(false);
+function ContactList({profiles, setProfiles}) {
+    const [isModalEditVisible, setModalEditVisible] = useState(false);
 
-    // Function to toggle the visibility of the modal
-    const toggleModal = () => {
-        setModalVisible(!isModalVisible);
+    const toggleModalEdit = () => {
+        setModalEditVisible(!isModalEditVisible);
     };
 
-    const profiles = [
-        {
-          name: 'John',
-          surname: 'Doe',
-          phone: '123-456-7890',
-          email: 'john@example.com',
-        },
-        {
-          name: 'Jane',
-          surname: 'Smith',
-          phone: '987-654-3210',
-          email: 'jane@example.com',
-        }
-      ];
+    // const profiles = [
+    //     {
+    //       name: 'John',
+    //       surname: 'Doe',
+    //       phone: '123-456-7890',
+    //       email: 'john@example.com',
+    //     },
+    //     {
+    //       name: 'Jane',
+    //       surname: 'Smith',
+    //       phone: '987-654-3210',
+    //       email: 'jane@example.com',
+    //     }
+    //   ];
     
+    const deleteProfile = (emailToDelete) => {
+        const updatedProfiles = profiles.filter(profile => profile.email !== emailToDelete);
+  
+        // Update the profiles state with the filtered array
+        setProfiles(updatedProfiles);
+    };
+
     return (
         <div className="profile-list">
         {profiles.map((profile, index) => (
@@ -39,17 +45,17 @@ function ContactList() {
                 </div>
                 <div className="contact-button">
                     <p>
-                        <button className="c-button" onClick={toggleModal}>
+                        <button className="c-button">
                             Edit
                         </button>
                     </p>
                     <p>
                         <button className="c-button">
                             Delete
-                        </button>
+                        </button> 
                     </p>
                 </div>
-                {isModalVisible && <Modal setIsModalOpen={setModalVisible} />}
+                {isModalEditVisible && <ModalEdit setIsModalEditOpen={setModalEditVisible} profiles={profiles} setProfiles={setProfiles} />}
             </div>
         ))}
     </div>

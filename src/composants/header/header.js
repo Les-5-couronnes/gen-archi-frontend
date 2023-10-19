@@ -1,14 +1,14 @@
-import Modal from "../modal/modal";
+import ModalAdd from "../modalAdd/modalAdd";
 import "./header.css";
 import React, {useState} from "react";
 
-function Header() {
+function Header({profiles, setProfiles}) {
 
-    const [isModalVisible, setModalVisible] = useState(false);
+    const [isModalAddVisible, setModalAddVisible] = useState(false);
 
     // Function to toggle the visibility of the modal
     const toggleModal = () => {
-        setModalVisible(!isModalVisible);
+        setModalAddVisible(!isModalAddVisible);
     };
 
     return (
@@ -21,7 +21,9 @@ function Header() {
                     Add Contact
                 </button>
             </div>
-            {isModalVisible && <Modal setIsModalOpen={setModalVisible} />}
+            {isModalAddVisible && <ModalAdd setIsModalAddOpen={setModalAddVisible} 
+            profiles={profiles} setProfiles={setProfiles} 
+            />}
         </div>
     );
 }

@@ -1,12 +1,11 @@
-import "./modal.css";
+import "./modalAdd.css";
 import React, {useState} from "react";
 
-function Modal(props) {
+function ModalAdd({setIsModalAddOpen, profiles, setProfiles}) {
     const [lastname, setLastname] = useState('');
-    const [Name, setName] = useState('');
+    const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const { setIsModalOpen } = props;
 
     const handleLastnameChange = (event) => {
         setLastname(event.target.value);
@@ -24,8 +23,28 @@ function Modal(props) {
         setEmail(event.target.value);
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const handleProfilesAdd = () => {
+        // Create a new profile object with the current values of the input fields
+        const newProfile = {
+            name: name,
+            surname: lastname,
+            phone: phone,
+            email: email,
+        }
+    
+        // Add the newProfile to the existing profiles array
+        setProfiles([...profiles, newProfile]);
+    
+        // Clear the input fields
+        setLastname('');
+        setName('');
+        setPhone('');
+        setEmail('');
+        setIsModalAddOpen(false);
+    }; 
+
+    const closeModalAdd = () => {
+        setIsModalAddOpen(false);
     };
     
     return (
@@ -39,12 +58,12 @@ function Modal(props) {
                     <input placeholder='Name' maxLength={20} onChange={handleNameChange}></input>
                     <input placeholder='Phone number' maxLength={20} onChange={handlePhoneChange}></input>
                     <input placeholder='E-mail' maxLength={20} onChange={handleEmailChange}></input>
-                    <button className='save-button'>Save contact</button>
-                    <button className="close-button" onClick={closeModal}>Close</button>
+                    <button className='save-button' onClick={handleProfilesAdd} >Save contact</button>
+                    <button className="close-button" onClick={closeModalAdd}>Close</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Modal;
+export default ModalAdd;

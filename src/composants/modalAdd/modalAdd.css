@@ -25,6 +25,7 @@
 
 .Modal-title {
     margin: 0;
+    text-align: center;
 }
 
 .Modal-body {
@@ -46,6 +47,4 @@
     background-color: rgb(99, 99, 99); /* Change the background color as needed */
     color: white; /* Change the text color as needed */
     cursor: pointer;
-    top: 0;
-    right: 0;
 }

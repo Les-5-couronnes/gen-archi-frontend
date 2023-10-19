@@ -1,0 +1,50 @@
+.Modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Modal-content {
+    width: 500px;
+    background-color: #fff;
+}
+
+.Modal-header {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    background-color:lightgrey;
+    padding: 10px;
+}
+
+.Modal-title {
+    margin: 0;
+    text-align: center;
+}
+
+.Modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+    padding: 30px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.save-button{
+    cursor: pointer;
+}
+
+.close-button {
+    background-color: rgb(99, 99, 99); /* Change the background color as needed */
+    color: white; /* Change the text color as needed */
+    cursor: pointer;
+}
