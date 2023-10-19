@@ -5,12 +5,16 @@ import React, {useState} from "react";
 function Page() {
     const [profiles, setProfiles] = useState([])
 
+    const changeProfile = (childData) => {
+      setProfiles(childData)
+    }
+
     return (
       <div className="Page">
-        <Header profiles={profiles} setProfiles={setProfiles}/>
-        <ContactList profiles={profiles} setProfiles={setProfiles}/>
+        <Header profiles={profiles} changeProfile={changeProfile}/>
+        <ContactList profiles={profiles} changeProfile={changeProfile}/>
       </div>
     );
   }
-  
+
   export default Page;

@@ -1,7 +1,7 @@
 import "./modalAdd.css";
 import React, {useState} from "react";
 
-function ModalAdd({setIsModalAddOpen, profiles, setProfiles}) {
+function ModalAdd({setIsModalAddOpen, profiles, changeProfile}) {
     const [lastname, setLastname] = useState('');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -31,22 +31,22 @@ function ModalAdd({setIsModalAddOpen, profiles, setProfiles}) {
             phone: phone,
             email: email,
         }
-    
+
         // Add the newProfile to the existing profiles array
-        setProfiles([...profiles, newProfile]);
-    
+        changeProfile([...profiles, newProfile]);
+
         // Clear the input fields
         setLastname('');
         setName('');
         setPhone('');
         setEmail('');
         setIsModalAddOpen(false);
-    }; 
+    };
 
     const closeModalAdd = () => {
         setIsModalAddOpen(false);
     };
-    
+
     return (
         <div className="Modal">
             <div className='Modal-content'>

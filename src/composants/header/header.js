@@ -2,7 +2,7 @@ import ModalAdd from "../modalAdd/modalAdd";
 import "./header.css";
 import React, {useState} from "react";
 
-function Header({profiles, setProfiles}) {
+function Header({profiles, changeProfile}) {
 
     const [isModalAddVisible, setModalAddVisible] = useState(false);
 
@@ -17,12 +17,12 @@ function Header({profiles, setProfiles}) {
                 <div className="title">
                     My Contacts
                 </div>
-                <button className="add-button" onClick={toggleModal}> 
+                <button className="add-button" onClick={toggleModal}>
                     Add Contact
                 </button>
             </div>
-            {isModalAddVisible && <ModalAdd setIsModalAddOpen={setModalAddVisible} 
-            profiles={profiles} setProfiles={setProfiles} 
+            {isModalAddVisible && <ModalAdd setIsModalAddOpen={setModalAddVisible}
+            profiles={profiles} changeProfile={changeProfile}
             />}
         </div>
     );

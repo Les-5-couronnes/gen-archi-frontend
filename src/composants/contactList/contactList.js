@@ -2,33 +2,18 @@ import ModalEdit from "../modalEdit/modalEdit";
 import "./contactList.css";
 import React, {useState} from "react";
 
-function ContactList({profiles, setProfiles}) {
+function ContactList({profiles, changeProfile}) {
     const [isModalEditVisible, setModalEditVisible] = useState(false);
 
     const toggleModalEdit = () => {
         setModalEditVisible(!isModalEditVisible);
     };
 
-    // const profiles = [
-    //     {
-    //       name: 'John',
-    //       surname: 'Doe',
-    //       phone: '123-456-7890',
-    //       email: 'john@example.com',
-    //     },
-    //     {
-    //       name: 'Jane',
-    //       surname: 'Smith',
-    //       phone: '987-654-3210',
-    //       email: 'jane@example.com',
-    //     }
-    //   ];
-    
     const deleteProfile = (emailToDelete) => {
+        // Filter profiles to keep
         const updatedProfiles = profiles.filter(profile => profile.email !== emailToDelete);
-  
-        // Update the profiles state with the filtered array
-        setProfiles(updatedProfiles);
+
+        changeProfile(updatedProfiles);
     };
 
     return (
@@ -45,17 +30,17 @@ function ContactList({profiles, setProfiles}) {
                 </div>
                 <div className="contact-button">
                     <p>
-                        <button className="c-button">
+                        <button className="c-button" onClick={toggleModalEdit}>
                             Edit
                         </button>
                     </p>
                     <p>
-                        <button className="c-button">
+                        <button className="c-button" onClick={() => deleteProfile(profile.email)}>
                             Delete
-                        </button> 
+                        </button>
                     </p>
                 </div>
-                {isModalEditVisible && <ModalEdit setIsModalEditOpen={setModalEditVisible} profiles={profiles} setProfiles={setProfiles} />}
+                {isModalEditVisible && <ModalEdit setIsModalEditOpen={setModalEditVisible} profile={profile} profiles={profiles} changeProfile={changeProfile} />}
             </div>
         ))}
     </div>
