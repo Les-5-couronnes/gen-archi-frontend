@@ -1,0 +1,41 @@
+.profile-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the entire list */
+    height: 100vh; /* Make the list fill the entire viewport height */
+  }
+  
+  .profile {
+    display: flex;
+    margin-bottom: 30px;
+    height: 120px !important;
+    width: 70%;
+    background-color: #dbdbdb;
+  }
+  
+  .profile-details {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.5;
+    justify-content: flex-start; /* Align profile-details to the right */
+  }
+  
+  .contact-info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.7;
+    justify-content: flex-start;
+  }
+
+  .contact-button {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .c-button {
+    cursor: pointer; /* Changez le curseur au survol */
+  }
