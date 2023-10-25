@@ -1,3 +1,4 @@
+import { addContact } from "../../services/addContact";
 import "./modalAdd.css";
 import React, {useState} from "react";
 
@@ -41,6 +42,8 @@ function ModalAdd({setIsModalAddOpen, profiles, changeProfile}) {
         setPhone('');
         setEmail('');
         setIsModalAddOpen(false);
+
+        addContact(newProfile);
     };
 
     const closeModalAdd = () => {

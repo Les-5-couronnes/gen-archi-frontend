@@ -1,3 +1,4 @@
+import { deleteContacts } from "../../services/deleteContact";
 import ModalEdit from "../modalEdit/modalEdit";
 import "./contactList.css";
 import React, {useState} from "react";
@@ -14,6 +15,8 @@ function ContactList({profiles, changeProfile}) {
         const updatedProfiles = profiles.filter(profile => profile.email !== emailToDelete);
 
         changeProfile(updatedProfiles);
+
+        deleteContact()
     };
 
     return (

@@ -1,3 +1,4 @@
+import { editContact } from "../../services/editContact";
 import "./modalEdit.css";
 import React, {useState} from "react";
 
@@ -44,6 +45,8 @@ function ModalEdit({setIsModalEditOpen, profile, profiles, changeProfile}) {
         setPhone('');
         setEmail('');
         setIsModalEditOpen(false);
+
+        editContact({mail: emailToChange, updatedContact : newProfile});
     };
 
     const closeModalEdit = () => {

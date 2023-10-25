@@ -1,9 +1,10 @@
+import { getContacts } from '../../services/getContacts.js';
 import ContactList from '../contactList/contactList.js';
 import Header from '../header/header.js';
 import React, {useState} from "react";
 
 function Page() {
-    const [profiles, setProfiles] = useState([])
+    const [profiles, setProfiles] = useState(getContacts())
 
     const changeProfile = (childData) => {
       setProfiles(childData)
