@@ -1,4 +1,4 @@
-import { addContact } from "../../services/addContact";
+import { addContact } from "../../services/services.js";
 import "./modalAdd.css";
 import React, {useState} from "react";
 

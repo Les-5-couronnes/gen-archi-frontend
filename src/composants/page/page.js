@@ -1,4 +1,4 @@
-import { getContacts } from '../../services/getContacts.js';
+import { getContacts } from '../../services/services.js';
 import ContactList from '../contactList/contactList.js';
 import Header from '../header/header.js';
 import React, {useState} from "react";
