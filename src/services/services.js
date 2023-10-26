@@ -1,10 +1,23 @@
 export async function getContacts() {
-    await fetch("http://localhost:3001/get-contacts").then((response) => {
+    const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+    };
+    console.log(process.env.BACKEND_URL)
+    return await fetch(`http://localhost:8000/get-contacts`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: get-contacts");
         }
         return response.json();
     })
+      .then((data) => {
+        return data;
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la requête : ", error);
+      });
 }
 
 export async function addContact(requestData) {
@@ -15,7 +28,7 @@ export async function addContact(requestData) {
         },
         body: JSON.stringify(requestData),
     };
-    await fetch("http://localhost:3001/add-contact", requestOptions).then((response) => {
+    await fetch(`http://localhost:8000/add-contact`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: add-contact");
         }
@@ -30,7 +43,7 @@ export async function deleteContact(requestData) {
         },
         body: JSON.stringify(requestData),
     };
-    await fetch("http://localhost:3001/delete-contact", requestOptions).then((response) => {
+    await fetch(`http://localhost:8000/delete-contact`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: add-contact");
         }
@@ -45,7 +58,7 @@ export async function editContact(requestData) {
         },
         body: JSON.stringify(requestData),
     };
-    await fetch("http://localhost:3001/edit-contact", requestOptions).then((response) => {
+    await fetch(`http://localhost:8000/edit-contact`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: add-contact");
         }

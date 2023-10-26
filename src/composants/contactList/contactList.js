@@ -12,11 +12,11 @@ function ContactList({profiles, changeProfile}) {
 
     const deleteProfile = (emailToDelete) => {
         // Filter profiles to keep
-        const updatedProfiles = profiles.filter(profile => profile.email !== emailToDelete);
+        const updatedProfiles = profiles.filter(profile => profile.mail !== emailToDelete);
 
         changeProfile(updatedProfiles);
 
-        deleteContact(emailToDelete);
+        deleteContact({mail: emailToDelete});
     };
 
     return (
@@ -28,8 +28,8 @@ function ContactList({profiles, changeProfile}) {
                     <p>Name : {profile.name}</p>
                 </div>
                 <div className="contact-info">
-                    <p>Phone number : {profile.phone}</p>
-                    <p>E-mail : {profile.email}</p>
+                    <p>Phone number : {profile.phoneNumber}</p>
+                    <p>E-mail : {profile.mail}</p>
                 </div>
                 <div className="contact-button">
                     <p>
@@ -38,7 +38,7 @@ function ContactList({profiles, changeProfile}) {
                         </button>
                     </p>
                     <p>
-                        <button className="c-button" onClick={() => deleteProfile(profile.email)}>
+                        <button className="c-button" onClick={() => deleteProfile(profile.mail)}>
                             Delete
                         </button>
                     </p>

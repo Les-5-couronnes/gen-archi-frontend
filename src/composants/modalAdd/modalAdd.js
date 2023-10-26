@@ -29,8 +29,8 @@ function ModalAdd({setIsModalAddOpen, profiles, changeProfile}) {
         const newProfile = {
             name: name,
             surname: lastname,
-            phone: phone,
-            email: email,
+            phoneNumber: phone,
+            mail: email,
         }
 
         // Add the newProfile to the existing profiles array
