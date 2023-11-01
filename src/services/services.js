@@ -6,7 +6,7 @@ export async function getContacts() {
         }
     };
     console.log(process.env.BACKEND_URL)
-    return await fetch(`http://localhost:8000/get-contacts`, requestOptions).then((response) => {
+    return await fetch(`${process.env.REACT_APP_API_URL}/get-contacts`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: get-contacts");
         }
@@ -28,7 +28,7 @@ export async function addContact(requestData) {
         },
         body: JSON.stringify(requestData),
     };
-    await fetch(`http://localhost:8000/add-contact`, requestOptions).then((response) => {
+    await fetch(`${process.env.REACT_APP_API_URL}/add-contact`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: add-contact");
         }
@@ -43,7 +43,7 @@ export async function deleteContact(requestData) {
         },
         body: JSON.stringify(requestData),
     };
-    await fetch(`http://localhost:8000/delete-contact`, requestOptions).then((response) => {
+    await fetch(`${process.env.REACT_APP_API_URL}/delete-contact`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: add-contact");
         }
@@ -58,7 +58,7 @@ export async function editContact(requestData) {
         },
         body: JSON.stringify(requestData),
     };
-    await fetch(`http://localhost:8000/edit-contact`, requestOptions).then((response) => {
+    await fetch(`${process.env.REACT_APP_API_URL}/edit-contact`, requestOptions).then((response) => {
         if (!response.ok) {
             throw new Error("Erreur lors de la requête: add-contact");
         }
