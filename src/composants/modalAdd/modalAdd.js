@@ -1,3 +1,4 @@
+import { addContact } from "../../services/services.js";
 import "./modalAdd.css";
 import React, {useState} from "react";
 
@@ -28,8 +29,8 @@ function ModalAdd({setIsModalAddOpen, profiles, changeProfile}) {
         const newProfile = {
             name: name,
             surname: lastname,
-            phone: phone,
-            email: email,
+            phoneNumber: phone,
+            mail: email,
         }
 
         // Add the newProfile to the existing profiles array
@@ -41,6 +42,8 @@ function ModalAdd({setIsModalAddOpen, profiles, changeProfile}) {
         setPhone('');
         setEmail('');
         setIsModalAddOpen(false);
+
+        addContact(newProfile);
     };
 
     const closeModalAdd = () => {
